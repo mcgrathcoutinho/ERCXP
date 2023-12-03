@@ -24,7 +24,7 @@ ERC20 token is used to introduce the notion of fungible assets in the Ethereum e
 
 ## Unknown tradeoffs/assumptions
 
-1. Use SafeERC20.sol instead of the transfer() and transferFrom() functions directly since these functions can also return false. If the return value of these functions is not checked in the implementation contract, it would be a problem and cause unintended behaviour in the application.
+1. Use SafeERC20.sol instead of the transfer() and transferFrom() functions directly since these functions can also return false. If the return value of these functions is not checked in the implementation contract, it would be a problem and cause unintended behaviour in the application. **Teams should be especially careful with this when using extensions such as ERC20Votes.sol since they inherit from ERC20.sol directly**.
 2. _mint() and _burn() functions are internal, thus exposing them to external visibility is required else tokens cannot be minted. Make sure to restrict these functions with admin modifiers since they're the crux of the supply mechanism in an application.
 
 ## Links
