@@ -2,7 +2,7 @@
 
 ## Introduction
 
-ERC20 token is used to introduce the notion fungible assets in the Ethereum ecosystem.
+ERC20 token is used to introduce the notion of fungible assets in the Ethereum ecosystem.
 
 ## Explanation of functions
 
