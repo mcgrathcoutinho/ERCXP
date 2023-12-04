@@ -11,13 +11,13 @@ contract ExampleERC3156 is ERC20FlashMint {
     address private multisig;
 
     //Address of fee recipient
-    address private flashFeeReceiver;
+    address public flashFeeReceiver;
 
     //Fee Amount
-    uint256 private fee;
+    uint256 public fee;
 
     //Pause status 
-    bool private pause;
+    bool public pause;
 
     modifier onlyAdmin() {
         if (msg.sender != multisig) revert("UnAuthorized!");
