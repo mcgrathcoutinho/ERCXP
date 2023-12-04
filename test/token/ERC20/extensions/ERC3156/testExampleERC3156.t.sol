@@ -36,6 +36,7 @@ contract testExampleERC3156 is Test {
         assertEq(instance.flashFeeReceiver(), alice);
     }
 
+    // Test if the flash loan works as intended
     function testFlashLoanSuccess() public {
         // Set up fee and fee recipient
         instance.setFlashFee(1e18); // 1 token (1e18 since 18 decimal representation)
@@ -81,5 +82,12 @@ contract testExampleERC3156 is Test {
         instance.approve(address(instance), 10e18 + 1e18); // tokens loaned + fee amount
 
         return keccak256("ERC3156FlashBorrower.onFlashLoan");
+    }
+
+    // Testing invariant i.e. flashLoan() function cannot be called when it is paused
+    function testCannotFlashLoanOnPause() public {
+        instance.setPauseStatus(true);
+        vm.expectRevert("Contract Paused!");
+        instance.flashLoan(IERC3156FlashBorrower(address(this)), address(instance), 10e18, "");
     }
 }
