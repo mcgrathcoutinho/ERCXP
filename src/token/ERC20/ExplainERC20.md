@@ -29,7 +29,7 @@ ERC20 token is used to introduce the notion of fungible assets in the Ethereum e
 
 ## Links
  - [Example Implementation](./ExampleERC20.sol)
- - [Tests for example implementation](../../../test/token/ERC20/)
+ - [Tests for example implementation](../../../test/token/ERC20/extensions/ERC3156/)
 
 ## [EIP20 spec](https://eips.ethereum.org/EIPS/eip-20) maintained?
  - No
