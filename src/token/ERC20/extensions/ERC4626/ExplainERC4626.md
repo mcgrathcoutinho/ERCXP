@@ -18,9 +18,7 @@ convertToShares() - Converts assets to shares. The formula used is s = aT/B, whe
 
 convertToAssets() - Converts shares to assets. The formula used in a = sB/T, where a = amount to withdraw, s = shares to burn, B = balance of vault before withdraw, T = total shares before burn.
 
-deposit() - Transfers assets from user to vault and mint shares to user
-
-mint() - Mints shares to user amd may or may not require user to deposit assets.
+deposit()/mint() - Transfers assets from user to vault and mint shares to user. Both functions are similar and are two sides of the same coin. One takes assets as the input while the other takes shares
 
 withdraw()/redeem() - Burns user's shares and transfers assets from vault to user. Both withdraw() and redeem() are very similar functions and are basically two sides of the same coin.
 
