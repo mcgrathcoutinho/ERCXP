@@ -87,7 +87,7 @@ contract testExampleERC4626 is Test {
 
     function testRedeem() public {
         // Deposit some assets in vault in order to withdraw
-        testDeposit();
+        testMint();
 
         // Call withdraw()
         instance.redeem(100, address(this), address(this)); // Mention shares to burn here instead of assets to withdraw
