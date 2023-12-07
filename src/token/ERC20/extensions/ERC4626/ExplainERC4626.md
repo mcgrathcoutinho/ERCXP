@@ -29,7 +29,7 @@ _decimalsOffset() - Returns 0 by default unless overriden to specify an offset v
  - The ERC4626 contract by OZ describes the specific cases at the top of the contract. Make sure you go through them.
  - Numerous issues arise based on how fees and strategies are implemented in the logic of the protocol, thus the tradeoffs/assumptions are external.
  - Inflation attacks, missing slippage protection and first depositor issues are very common when it comes to vaults. Make sure to go through them once the logic is implemented for fees/strategies.
- - Incorrect calculations can occur when converting to shares/assets if the decimal offset is not considered. Several tokens have 6 decimals or some even have 24 decimals. Overriding decimalOffset() to ensure the decimals() of the vault are aligned is crucial.
+ - A decimals offset allows to directly tune the profitability of the inflation attack by increasing the amount of decimal places to represent the shares beyond that of the underlying token. Thus, using it is crucial.
  - Check [Security Considerations](https://eips.ethereum.org/EIPS/eip-4626#security-considerations)
  - Section will be updated as necessary
 
