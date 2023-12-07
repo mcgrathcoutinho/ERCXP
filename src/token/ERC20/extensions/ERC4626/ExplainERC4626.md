@@ -26,12 +26,16 @@ _decimalsOffset() - Returns 0 by default unless overriden to specify an offset v
 
 
 ## Unknown tradeoffs/assumptions
+ - The ERC4626 contract by OZ describes the specific cases at the top of the contract. Make sure you go through them.
+ - Numerous issues arise based on how fees and strategies are implemented in the logic of the protocol, thus the tradeoffs/assumptions are external.
+ - Inflation attacks, missing slippage protection and first depositor issues are very common when it comes to vaults. Make sure to go through them once the logic is implemented for fees/strategies.
+ - Incorrect calculations can occur when converting to shares/assets if the decimal offset is not considered. Several tokens have 6 decimals or some even have 24 decimals. Overriding decimalOffset() to ensure the decimals() of the vault are aligned is crucial.
+ - Check [Security Considerations](https://eips.ethereum.org/EIPS/eip-4626#security-considerations)
+ - Section will be updated as necessary
 
 ## Links
- - [Example Implementation](./ExampleERC3156.sol)
- - [Tests for example implementation](../../../../test/token/ERC20/extensions/ERC3156/)
+ - [Example Implementation](./ExampleERC4626.sol)
+ - [Tests for example implementation](../../../../test/token/ERC20/extensions/ERC4626/)
 
 ## [EIP4626 spec](https://eips.ethereum.org/EIPS/eip-4626) maintained?
- - Yes/No
-
-### Where does it not adhere to the spec
+ - No, though the spec can be broken by integrators if not implemented correctly
