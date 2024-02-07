@@ -36,9 +36,11 @@ ERC721 token introduces the notion of Non-Fungible assets in the Ethereum ecosys
 
 ## Unknown tradeoffs/assumptions
 1. If an operator is approved as well as another address separately for the specific tokenId, then frontrunning among them is possible.
+2. _mint() and _burn() functions are internal, thus exposing them to external visibility is required else tokens cannot be minted. Make sure to restrict these functions with admin modifiers.
 
 ## Links
+ - [Example Implementation](./ExampleERC721.sol)
+ - [Tests for example implementation](../../../test/token/ERC721/testExampleERC721.t.sol)
 
-## EIP721 spec
-
-### Where does it not adhere to the spec
+## [EIP721 spec](https://eips.ethereum.org/EIPS/eip-721) maintained?
+ - Yes
